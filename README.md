@@ -4,7 +4,7 @@ I built a databse that contains tables and metadata as per the SDTM data standar
 I also built a data pipeline. that would pick data from a folder (in my laptop) and load that data into PostgreSQL database. This pipeline can then be run anytime some data needs to be loaded into the database by someone who is not tech savvy as well. 
 This popeline is built using Python and SQL. 
 
-PArt 1 - Table and metadata building according to SDTM standards
+Part 1 - Table and metadata building according to SDTM standards
 
 Part 2 - Procedures and tables in database used for the pipeline
 
