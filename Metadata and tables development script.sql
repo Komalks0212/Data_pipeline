@@ -534,22 +534,6 @@ create table staging.generic_load_table
 	column100 varchar
 );
 
-
---drop table meta.load_tables_population_log;
-create table meta.load_tables_population_log
-(load_id integer NOT NULL GENERATED ALWAYS AS identity,
- table_name varchar,
- status_ld_generic_tab varchar default 'I', 
- status_ld_spec_tab varchar default 'P',
- ld_into_generic_tab_at timestamp NULL DEFAULT now(),
- ld_into_generic_tab_by varchar NULL DEFAULT CURRENT_USER,
- ld_into_spec_tab_at timestamp,
- ld_into_spec_tab_by varchar
-);
-
-comment on column meta.load_tables_population_log.ld_into_generic_tab_by is 'I-Initialized, C-Completed, E-Error';
-comment on column meta.load_tables_population_log.ld_into_spec_tab_by is 'P-Pending, I-Initialized, C-Completed, E-Error';
-
 select * from meta.load_tables_population_log;
 
 call proc_update_log_table(pvi_purpose:= 'INSERT'::varchar, pvi_table_name:= 'dm.tab'::varchar);
